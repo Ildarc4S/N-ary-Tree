@@ -1,0 +1,13 @@
+<tree>
+    <description>Бла-бла дерево</description>
+    <property>
+        <name>depth</name>
+        <description>Глубина построения дерева</description>
+        <value>5</value>
+    </property>
+    <property>
+        <name>probability</name>
+        <description>Вероятность построения узлов при генерации следующих поколений дерева</description>
+        <value>0.2</value>
+    </property>
+</tree>
