@@ -50,8 +50,8 @@
 
 1. **Клонирование репозитория:**
    ```bash
-   git clone 
-   cd 
+   git clone https://github.com/Ildarc4S/N-ary-Tree.git
+   cd N-ary-Tree
     ```
 2. **Сборка проекта:**
     ```bash 

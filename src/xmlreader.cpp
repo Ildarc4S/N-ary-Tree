@@ -5,9 +5,10 @@
         if(!file.is_open()) {
             std::cerr << "File " << file_name << " not open!" << std::endl;
         } else {
+            std::cout << "XML file is open!" << std::endl;
             if(checkTags()) {
-                std::cout << "OK!";
-                 file.clear();
+                std::cerr << "XML file format correct!" << std::endl;
+                file.clear();
                 file.seekg(0);
                 parseProperties();
             } else {
@@ -53,7 +54,6 @@
                     
         std::getline(file, line);
         trim(line);
-
         std::string depth_str = extractElement(line, "value");
         depth = depth_str != "" ? std::stoi(depth_str) : 0;
     }
@@ -69,7 +69,6 @@
 
         std::string probability_str = extractElement(line, "value");
         probability = probability_str != "" ? std::stof(probability_str) : 0.0f;
-        std::cout << probability;
         if (probability < 0.0f || probability > 1.0f) { 
             std::cerr << "Probability value out of range: " << probability << ". Setting to default (0.0)." << std::endl;
             probability = 0.0f;
@@ -79,13 +78,9 @@
     std::string XMLReader::extractElement(const std::string& line, const std::string& element_name) {
         std::string search_str_begin = "<" + element_name + ">";
         std::string search_str_end = "</" + element_name + ">";
-
-        std::cout << search_str_begin << "=" << search_str_end;
                 
         size_t start = line.find(search_str_begin) + search_str_begin.size();
         size_t end = line.find(search_str_end);
-
-        std::cout << start << "%" << end << std::endl;
 
         std::string result = "";
         if (start == std::string::npos || end == std::string::npos || start >= end) {
@@ -118,7 +113,7 @@
         return tags.empty();
     }
 
-    void XMLReader::trim(std::string& str) const {
+    void XMLReader::trim(std::string& str) {
         str.erase(0, str.find_first_not_of(" \t\n\r"));
         str.erase(str.find_last_not_of(" \t\n\r") + 1);
     }

@@ -29,5 +29,5 @@ private:
   void processDepthProperty();
   void processProbabilityProperty();
   bool checkTags();
-  void trim(std::string &str) const;
+  void trim(std::string &str);
 };
